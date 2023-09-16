@@ -1,0 +1,182 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Epilogue', sans-serif;
+  text-decoration: none;
+  background-image: url('../img/Rectangle\ 2.png');
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    padding: 1.5% 2% 0 2% ;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav p {
+    float: left;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    font-style: bold;
+  }
+
+  .topnav img {
+    float: left;
+    width: 50px;
+    max-width: 100%;
+  }
+
+  span{
+    color: #0D1282;
+  }
+  
+  .hero{
+    display: flex;
+    text-transform: capitalize;
+    min-height: 80vh;
+    max-height: 100%;
+    align-items: center;
+    font-style: bold;
+    padding: 0 2%;
+  }
+  
+
+  .content button span{
+    color: #fff;
+  }
+
+  .content h3 {
+    font-size: 30px;
+  }
+
+  .content h1 {
+    font-size: 50px;
+  }
+
+  .content-image{
+    display: flex;
+    padding-left: 80px;
+  }
+  
+  .content-image img{
+    width: 650px;
+    padding-right: 5%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 3% 2% 0 2%;
+    min-height: 70vh;
+  }
+
+  .title{
+    color: #0D1282;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-style: bold;
+  }
+
+/* Float four columns side by side */
+  .column {
+    font-size: 25px;
+    float: left;
+    height: 25%;
+    width: 20%;
+    margin-left: 15%;
+    padding: 0 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: center;
+    background-color: #E0DBFF;
+  }
+
+/* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .form a{
+    background-color: #0D1282;
+    float: left;
+    padding: 15px 20px ;
+    margin: 3% 0 0 43%;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form a:hover{
+    background-color: #080d5b;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #0D1282;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  footer {
+    /* position: fixed; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0D1282;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    max-width: 100%;
+}
