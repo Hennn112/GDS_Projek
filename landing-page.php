@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="form">
-            <a href="">Laporkan Siswa</a>
+            <a href="" target="_blank">Laporkan Siswa</a>
         </div>
     </section>
 
