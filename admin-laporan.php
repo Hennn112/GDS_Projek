@@ -22,13 +22,17 @@ $datas = query("SELECT * FROM data_laporan");
 </head>
 <body>
     <div class="sidebar">
-        <img src="img/Ellipse 1.svg" alt="">
-        <h1>Admin Wikrama</h1>
-        <a href="#services"><img src="img/layouts (1) 1.svg" alt=""> Dashboard</a>
-        <a href="#clients"><img src="img/user (1) 1.svg" alt=""> Data Siswa</a>
-        <a href="#contact"><img src="img/document 1.svg" alt=""> Data Laporan</a>
-        <a href="#add"><img src="img/add-user 1.svg" alt=""> Tambah Siswa</a>
-
+        <div class="sidebar-top">
+            <img src="img/Ellipse 1.svg" alt="">
+            <h1>Admin Wikrama</h1>
+            <a href="admin-dashboard.php"><img src="img/layouts (1) 1.svg" alt=""> Dashboard</a>
+            <a href="admin-datasiswa.php"><img src="img/user (1) 1.svg" alt=""> Data Siswa</a>
+            <a href="admin-laporan.php"><img src="img/document 1.svg" alt=""> Data Laporan</a>
+        </div>
+        <div class="sidebar-bottom">
+        <!-- Tambahkan link logout di bawah ini -->
+            <a href="logout.php"><img src="img/logout 1.svg" alt=""> Logout</a>
+        </div>
     </div>
     <div class="content">
         <div class="topnav">
@@ -36,7 +40,7 @@ $datas = query("SELECT * FROM data_laporan");
             <p class="active" href="#home">GDS <span>Wikrama</span></p>
         </div>
         <div class="clearfix"></div>  
-        <h1>Data Siswa</h1>
+        <h1>Data Laporan</h1>
         <hr>
         <table class="table" border="1">
             <tr>

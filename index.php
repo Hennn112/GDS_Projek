@@ -1,12 +1,4 @@
 
-<?php
-session_start();
-if(isset($_SESSION['username'])) {
-    header("location: admin-dashboard.php");
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +27,7 @@ if(isset($_SESSION['username'])) {
         <div id="id01" class="modal">
 
         <!-- Modal Content -->
-        <form class="modal-content" action="login.php" method="post">
+        <form class="modal-content" action="login.php"method="post">
             <div class="imgcontainer">
             <img src="img/user (2) 1.png" alt="Avatar" class="avatar" style="width: 50px;">
             </div>
@@ -53,7 +45,6 @@ if(isset($_SESSION['username'])) {
             </label>
                 <div class="container">
                 <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
 
             </div>

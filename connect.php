@@ -14,12 +14,12 @@ function query($query) {
 function add(){
     global $db;
     
-    $nis = $_GET["nis"];
-    $nama = $_GET["nama"];
-    $rombel = $_GET["rombel"];
-    $rayon = $_GET["rayon"];
+    $nis = $_POST["nis"];
+    $nama = $_POST["nama"];
+    $rombel = $_POST["rombel"];
+    $rayon = $_POST["rayon"];
 
-    $query = "INSERT INTO `` 
+    $query = "INSERT INTO `admin` 
               VALUES ('','$nama','$rayon','$rombel','$nis')";
     $result = mysqli_query($db, $query);
     return $result;
