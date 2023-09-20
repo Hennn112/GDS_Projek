@@ -1,3 +1,12 @@
+<?php
+require 'connect.php';
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("location: index2.php");
+}
+$datas = query("SELECT * FROM data_laporan");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,13 +46,17 @@
                 <th>Isi Laporan</th>
                 <th>Gambar</th>
             </tr>
+            <?php $i = 1?>
+            <?php foreach($datas as $data):?>
             <tr>
-                <td>1</td>
-                <td>John Doe</td>
-                <td>R001</td>
-                <td>123456</td>
-                <td><img src="img/download (1).jpeg" alt=""></td>
+                <td><?= $i?></td>
+                <td><?= $data['pelapor']?></td>
+                <td><?= $data['siswa']?></td>
+                <td><?= $data['laporan']?></td>
+                <td><img src="<?= $data['gambar']?>" alt=""></td>
             </tr>
+            <?php $i++;?>
+            <?php endforeach;?>
         </table>
     </div>
     

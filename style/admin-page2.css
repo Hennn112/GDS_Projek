@@ -49,6 +49,32 @@ body{
   background-color: #3337a9;
 }
 
+.sidebar-bottom {
+  /* Styles for the bottom section of the sidebar */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #454CF0;
+  padding-top: 16px;
+}
+
+.sidebar-bottom a {
+  /* Styles for the logout link */
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f1f1f1;
+  padding: 15px 8px 15px 16px;
+}
+
+.sidebar-bottom a img {
+  /* Styles for the logout icon */
+  padding-right: 10px;
+  width: 25px;
+}
+
+
 /* Style the main content */
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
@@ -90,7 +116,8 @@ span{
   color: #0D1282;
 }
 
-.content h6{
+.content h6 a{
+  text-decoration: none;
   background-color: #454CF0;
   margin-bottom: -10px;
   margin-top: 1px;
@@ -102,7 +129,7 @@ span{
   transition: background-color 0.3s ease;
 }
 
-.content h6:hover {
+.content h6 a:hover {
   background-color: #3337a9;
 }
 
@@ -148,15 +175,23 @@ table tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+/* Style for table rows on hover */
+table tr:hover {
+  background-color: #e6e6e6; /* Ganti warna latar belakang sesuai preferensi Anda */
+}
+
 /* Style for table actions links */
-table a {
+table tr td a {
+  /* background-color: #fff; */
   text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
   margin-right: 10px;
   color: #0D1282;
   font-weight: bold;
 }
 
 /* Style for table actions links on hover */
-table a:hover {
+table tr td a:hover {
   color: #3337a9;
 }
