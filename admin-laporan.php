@@ -2,7 +2,7 @@
 require 'connect.php';
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("location: index2.php");
+    header("location: index.php");
 }
 $datas = query("SELECT * FROM data_laporan");
 ?>
@@ -13,7 +13,7 @@ $datas = query("SELECT * FROM data_laporan");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/Wikrama-logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style/admin-page.css">
+    <link rel="stylesheet" href="style/admin-page2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Epilogue' rel='stylesheet'>
@@ -57,7 +57,7 @@ $datas = query("SELECT * FROM data_laporan");
                 <td><?= $data['pelapor']?></td>
                 <td><?= $data['siswa']?></td>
                 <td><?= $data['laporan']?></td>
-                <td><img src="<?= $data['gambar']?>" alt=""></td>
+                <td><img src="bukti/<?= $data['gambar']?>" alt=""></td>
             </tr>
             <?php $i++;?>
             <?php endforeach;?>
