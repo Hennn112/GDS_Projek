@@ -1,8 +1,10 @@
 <?php
-require "connect.php";
-    if (hapus()) {
+require "function.php";
+    if (hapus() > 0) {
         header("location: admin-datasiswa.php");
     }else{
-        echo "gagal";
+        echo "<script>alert('Data gagal dihapus!');
+        document.location.href = 'admin-datasiswa.php';
+        </script>";
     }
 ?>

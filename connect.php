@@ -14,15 +14,16 @@ function query($query) {
 function add(){
     global $db;
     
-    $nis = $_POST["nis"];
-    $nama = $_POST["nama"];
-    $rombel = $_POST["rombel"];
-    $rayon = $_POST["rayon"];
+    $nis = htmlspecialchars($_POST["nis"]);
+    $nama = htmlspecialchars($_POST["nama"]);
+    $rombel = htmlspecialchars($_POST["rombel"]);
+    $rayon = htmlspecialchars($_POST["rayon"]);
 
     $query = "INSERT INTO `admin` 
               VALUES ('','$nama','$rayon','$rombel','$nis')";
-    $result = mysqli_query($db, $query);
-    return $result;
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
 }
 
 //function untuk hapus data siswa pada table admin
@@ -32,8 +33,9 @@ function hapus() {
 
     //diapit oleh backtick membedakan tabel dan sintaks sql
     $sql = "DELETE FROM `admin` WHERE id = $id";
-    $result = mysqli_query($db,$sql);
-    return $result;
+    mysqli_query($db,$sql);
+
+    return mysqli_affected_rows($db);
 }
 
 function login($username, $password) {
@@ -51,5 +53,37 @@ function login($username, $password) {
     } else {
         return false; // Login gagal
     }
+}
+
+function edit() {
+    global $db;
+    
+    $id = $_POST['id'];
+    $nis = htmlspecialchars($_POST["nis"]);
+    $nama = htmlspecialchars($_POST["nama"]);
+    $rombel = htmlspecialchars($_POST["rombel"]);
+    $rayon = htmlspecialchars($_POST["rayon"]);
+
+    $query = "UPDATE `admin` SET 
+                 nis = '$nis',
+                 nama = '$nama',
+                 rombel = '$rombel',
+                 rayon = '$rayon' 
+                 WHERE id = $id";
+
+    mysqli_query($db, $query);
+
+    return mysqli_affected_rows($db);
+}
+
+function cari($keyword) {
+    $query = "SELECT * FROM `admin` WHERE
+              nama LIKE '%$keyword%' OR
+              nis LIKE '%$keyword%' OR
+              rayon LIKE '%$keyword%' OR
+              rombel LIKE '%$keyword%' OR
+              ";
+              
+    return query($query);
 }
 ?>
