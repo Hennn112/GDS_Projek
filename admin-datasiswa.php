@@ -84,7 +84,7 @@ if (isset($_POST['cari'])) {
                         onclick="handleEdit('<?= implode(',', $data)?>')"> 
                         Edit
                     </a> 
-                    <a href="delete.php?id=<?= $data['id'];?>">Delete</a></td>
+                    <a href="delete.php?id=<?= $data['id'];?>" onclick="return confirm('Data berikut akan dihapus')">Delete</a></td>
 
             </tr>
             <?php $i++ ?>

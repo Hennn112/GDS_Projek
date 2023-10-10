@@ -55,6 +55,27 @@ function login($username, $password) {
     }
 }
 
+function update(){
+    global $db;
+
+    $id = $_POST["id"]; // ID data yang akan diperbarui
+    $nis = $_POST["nis"];
+    $nama = $_POST["nama"];
+    $rombel = $_POST["rombel"];
+    $rayon = $_POST["rayon"];
+
+    $query = "UPDATE admin SET 
+              nama = '$nama',
+              rayon = '$rayon',
+              rombel = '$rombel',
+              nis = '$nis'
+              WHERE id = $id";
+
+    $result = mysqli_query($db, $query);
+
+    return $result;
+}
+
 function edit() {
     global $db;
     
@@ -86,4 +107,6 @@ function cari($keyword) {
               
     return query($query);
 }
+
+
 ?>

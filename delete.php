@@ -1,5 +1,5 @@
 <?php
-require "function.php";
+require "connect.php";
     if (hapus() > 0) {
         header("location: admin-datasiswa.php");
     }else{
