@@ -63,45 +63,100 @@ $datas = query("SELECT * FROM admin")
                 <td><?= $data['rayon'];?></td>
                 <td><?= $data['nis'];?></td>
                 <td><?= $data['rombel'];?></td>
-                <td><a href="#">Edit </a><a href="delete.php?id=<?= $data['id'];?>">Delete</a></td>
+                <td><a 
+                        class="button"
+                        style="cursor: pointer;"
+                        onclick="handleEdit('<?= implode(',', $data)?>')"> 
+                        Edit
+                    </a> 
+                    <a href="delete.php?id=<?= $data['id'];?>">Delete</a></td>
             </tr>
             <?php $i++ ?>
             <?php endforeach;?>
         </table>
     </div>
-    <div id="id01" class="modal">
-        <form class="modal-content" action="create.php" method="post">
-            <div class="container">
-            <label for="nama">Nama:</label>
-            <input type="text" id="nama" name="nama" required><br><br>
+        <div id="id01" class="modal">
+            <form class="modal-content" action="create.php" method="post">
+                <div class="container">
+                <label for="nama">Nama:</label>
+                <input type="text" name="nama" required><br><br>
 
-            <label for="rayon">Rayon:</label>
-            <input type="text" id="rayon" name="rayon" required><br><br>
+                <label for="rayon">Rayon:</label>
+                <input type="text" name="rayon" required><br><br>
 
-            <label for="nis">NIS:</label>
-            <input type="text" id="nis" name="nis" required><br><br>
+                <label for="nis">NIS:</label>
+                <input type="text" name="nis" required><br><br>
 
-            <label for="rombel">Rombel:</label>
-            <input type="text" id="rombel" name="rombel" required><br><br>
+                <label for="rombel">Rombel:</label>
+                <input type="text" name="rombel" required><br><br>
 
-            <button type="submit" name="submit">Tambah</button>
+                <button type="submit" name="submit">Tambah</button>
 
-            <div class="container">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            </div>
-            </div>
-        </form>
+                <div class="container">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                </div>
+                </div>
+            </form>
+        </div>
+        <div id="id02" class="modal">
+            <form class="modal-content" action="update.php" method="post">
+                <div class="container">
+                    <input type="hidden" name="id" id="id">
+
+                    <label for="nama">Nama : </label>
+                    <input type="text" id="nama" name="nama" value="<?= $data["nama"]; ?>">
+
+                    <label for="rayon">Rayon : </label>
+                    <input type="text" id="rayon" name="rayon" value="<?= $data["rayon"]; ?>">
+
+                    <label for="nis">Nis : </label>
+                    <input type="text" id="nis" name="nis" value="<?= $data["nis"]; ?>">
+
+                    <label for="Rombel">Rombel : </label>
+                    <input type="text" id="rombel" name="rombel" value="<?= $data["rombel"]; ?>">
+
+                    <button type="submit" name="submit">Update</button>
+
+                    <div class="container">
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
 <script>
     // Get the modal
-    var modal = document.getElementById('id01');
-
+    var modal           = document.getElementById('id01');
+    var modalUpdate     = document.getElementById('id02');
+    
+    
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
-    }
+
+    const handleEdit = function(value){    
+        // string to array
+        const data = value.split(',');
+        
+        // Show Modal Update
+        modalUpdate.style.display = "block";
+
+        // SET DATA FOR UPDATE
+        var id      =document.getElementById('id');
+        var nama    =document.getElementById('nama');
+        var rayon   =document.getElementById('rayon');
+        var nis     =document.getElementById('nis');
+        var rombel  =document.getElementById('rombel');
+        
+        id.value      = data[0]; // SET id
+        nama.value    = data[1]; // SET nama
+        rayon.value   = data[2]; // SET rayon
+        nis.value     = data[3]; // SET nis
+        rombel.value  = data[4]; // SET rombel
+    };
 </script>
 
 </body>
