@@ -1,4 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header("location: admin-datasiswa.php");
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +74,7 @@
             </div>
         </div>
         <div class="form">
-            <a href="" target="_blank">Laporkan Siswa</a>
+            <a href="tambah.php" target="_blank">Laporkan Siswa</a>
         </div>
     </section>
 

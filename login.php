@@ -12,9 +12,9 @@ if (isset($_POST['submit'])){
 
     if (login($username, $password)) {
         header("Location: admin-datasiswa.php");
-    } elseif(login($username,$password) ==0) {
+    } elseif(login($username,$password) == 0) {
         echo "<script> alert('Input Again Password and Username');
-        document.location.href = 'index2.php';
+        document.location.href = 'index.php';
         </script>";
         die;
     }

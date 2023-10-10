@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost","root", "", "db_students"); 
+    $conn = mysqli_connect("localhost","root", "", "db_gds_wikrama"); 
 
     function tampilData( $query ){
         global $conn;
@@ -27,13 +27,13 @@
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
             if(in_array($ext, $ekstensi) && $ukuran < 1044070){	
                 $gambar = $rand.'_'.$filename;
-                move_uploaded_file($_FILES['gambar']['tmp_name'], 'img/'.$rand.'_'.$filename);
+                move_uploaded_file($_FILES['gambar']['tmp_name'], 'img/'.$rand.$filename);
             }else{
                 return 0;
             }
         }
 
-        $query = "INSERT INTO students VALUES (
+        $query = "INSERT INTO data_laporan VALUES (
                                 null, 
                                 '$nama_pelapor', 
                                 '$nama_siswa', 
