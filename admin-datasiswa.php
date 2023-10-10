@@ -1,11 +1,25 @@
+    
 <?php
 require 'connect.php';
+$datas = query("SELECT * FROM admin");
+
 session_start();
 if(!isset($_SESSION['username'])) {
-    header("location: index2.php");
+    header("location: index.php");
+}
+if (isset($_POST['submit'])) {
+    if (add() > 0 ) {
+        header("location:admin-datasiswa.php");
+    }else{
+        echo "<script> alert('Data Gagal ditambahkan');
+        document.location.href = 'admin-dashboard.php';
+        </script>"; 
+    }
 }
 
-$datas = query("SELECT * FROM admin")
+if (isset($_POST['cari'])) {
+    $datas = cari($_POST['keyword']);
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +28,7 @@ $datas = query("SELECT * FROM admin")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/Wikrama-logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style/admin-page.css">
+    <link rel="stylesheet" href="style/admin-page2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Epilogue' rel='stylesheet'>
@@ -43,9 +57,9 @@ $datas = query("SELECT * FROM admin")
         </div>
         <div class="clearfix"></div>  
         <h1>Data Siswa</h1>
-        <hr>    
+        <hr> 
         <h6><a class="button" onclick="document.getElementById('id01').style.display='block'">Tambah Data Siswa</a></h6>
-      
+
         <table class="table" border="1">
             <tr>
                 <th>No</th>
@@ -63,6 +77,7 @@ $datas = query("SELECT * FROM admin")
                 <td><?= $data['rayon'];?></td>
                 <td><?= $data['nis'];?></td>
                 <td><?= $data['rombel'];?></td>
+
                 <td><a 
                         class="button"
                         style="cursor: pointer;"
@@ -70,31 +85,34 @@ $datas = query("SELECT * FROM admin")
                         Edit
                     </a> 
                     <a href="delete.php?id=<?= $data['id'];?>">Delete</a></td>
+
             </tr>
             <?php $i++ ?>
             <?php endforeach;?>
         </table>
     </div>
-        <div id="id01" class="modal">
-            <form class="modal-content" action="create.php" method="post">
-                <div class="container">
+
+    <div id="id01" class="modal">
+        <form class="modal-content" action="" method="post">
+            <div class="container">
                 <label for="nama">Nama:</label>
-                <input type="text" name="nama" required><br><br>
+                <input type="text" id="nama" name="nama" required autocomplete="off"><br><br>
 
                 <label for="rayon">Rayon:</label>
-                <input type="text" name="rayon" required><br><br>
+                <input type="text" id="rayon" name="rayon" required autocomplete="off"><br><br>
 
                 <label for="nis">NIS:</label>
-                <input type="text" name="nis" required><br><br>
+                <input type="text" id="nis" name="nis" required autocomplete="off"><br><br>
 
                 <label for="rombel">Rombel:</label>
-                <input type="text" name="rombel" required><br><br>
+                <input type="text" id="rombel" name="rombel" required autocomplete="off"><br><br>
 
                 <button type="submit" name="submit">Tambah</button>
 
                 <div class="container">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                 </div>
+
                 </div>
             </form>
         </div>
@@ -123,6 +141,7 @@ $datas = query("SELECT * FROM admin")
                 </div>
             </form>
         </div>
+
 
 <script>
     // Get the modal
